@@ -1,24 +1,26 @@
 import pg from 'pg';
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  password: "12345",
-  database: "worlds",
-  port: 5433
-});
+export class PostgressDB {
+  constructor() {
+    this.db = new pg.Client({
+      user: "postgres",
+      host: "localhost",
+      password: "12345",
+      database: "worlds",
+      port: 5433
+    });
+    this.db.connect();
+  }
 
+  getData = async(query) => {
+    let result = await this.db.query(query);
+    return result['rows'];
+  };
 
-db.connect();
-export const getData = async(query) => {
-  let result = await db.query(query);
-  return result['rows'];
-};
-
-export const insertData = async(body) => {
-  const country_code = await db.query(`select code from country_code where lower(country_name) = '${body.toLowerCase()}'`);
-
-  db.query(`insert into visited_country(country_code) values('${country_code['rows'][0].code}')`).catch((err) => {
-    console.error(err);
-  });
+  insertData = async(body) => {
+    const country_code = await this.db.query(`select code from country_code where lower(country_name) = '${body.toLowerCase()}'`);
+    this.db.query(`insert into visited_country(country_code) values('${country_code['rows'][0].code}')`).catch((err) => {
+      console.error(err);
+    });
+  }
 }

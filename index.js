@@ -1,17 +1,18 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { getData, insertData } from "./db.js";
+import { PostgressDB } from "./db.js";
 
 const app = express();
 const port = 3000;
+const db = new PostgressDB();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   let negara = [];
-  const countries = await getData(`select country_code from visited_country`);
-  const total = await getData(`select count(id) from visited_country`);
+  const countries = await db.getData(`select country_code from visited_country`);
+  const total = await db.getData(`select count(id) from visited_country`);
 
   countries.forEach(data=>{
     negara.push(data.country_code);
@@ -23,7 +24,7 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/add", async (req, res) => {
-  insertData(req.body.country);
+  db.insertData(req.body.country);
   res.redirect('/');
 });
 
