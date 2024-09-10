@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Tracker</title>
   <link rel="stylesheet" href="./styles/main.css">
+
 </head>
 
 <body>
@@ -374,12 +375,19 @@
   <h2 class="total-count">Total Countries: <%=total || 0%>
   </h2>
 
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
     const country_codes = '<%= countries %>'.split(','); 
     country_codes.forEach(code => {
       document.getElementById(code).style.fill = 'teal'
     });
 
+    const clickCountry = () => {
+      console.log('clickedd');
+    };
+    const selectedCountry = document.querySelector('svg');
+    selectedCountry.addEventListener('click', clickCountry())
   </script>
 </body>
 
