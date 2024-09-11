@@ -8,3 +8,5 @@ The key points of this repo are :
 4. The postgres action that I use including :
    - Select
    - Insert
+5. The select options only showing country that has not been visited.
+6. I'm using a little bit of jQuery.
