@@ -102,3 +102,7 @@ button {
   left: 0;
   bottom: 0;
 }
+
+select {
+  padding: 15px;
+}

@@ -8,6 +8,7 @@ const db = new PostgressDB();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+// GET HOME
 app.get("/", async (req, res) => {
   let countryCode = [];
   let countryName = [];
@@ -28,6 +29,7 @@ app.get("/", async (req, res) => {
   });
 });
 
+// ADD COUNTRY
 app.post("/add", async (req, res) => {
   db.insertData(req.body.country).then((data) => {
     if(data==true) {
