@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import 'dotenv/config';
 import { PostgressDB } from "./db.js";
 
 const app = express();
@@ -13,7 +14,7 @@ app.get("/", async (req, res) => {
   let countryCode = [];
   let countryName = [];
   const codeQuery = await db.getData('*', 'visited_country');
-  const nameQuery = await db.getData('country_name', 'country_code');
+  const nameQuery = await db.getOptionData();
   const total = await db.getData('count(id)', 'visited_country');
 
   codeQuery.forEach(data=>{

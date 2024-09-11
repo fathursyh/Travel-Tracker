@@ -10,10 +10,11 @@
 </head>
 
 <body>
-  <form action="/add" method="post" style="position: fixed; top: 0;">
+  <form action="/add" method="POST" style="position: fixed; top: 0;">
     <select name="country">
+      <option value="" disabled selected >Select country</option>
       <% options.forEach(element=>{ %>
-        <%- `<option value=${element}>${element} </option>` %>
+         <option><%= element %></option>
       <% }) %>
     </select>
     <button type="submit">Add</button>
@@ -381,10 +382,12 @@
   
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
+    const country_name = '<'
     const country_codes = '<%= countries %>'.split(','); 
     country_codes.forEach(code => {
-      document.getElementById(code).style.fill = 'teal'
+      $('#'+code).css('fill', 'Teal');
     });
+
   </script>
 </body>
 
