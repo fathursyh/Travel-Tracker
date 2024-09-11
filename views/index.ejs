@@ -7,12 +7,12 @@
   <title>Travel Tracker</title>
   <link rel="stylesheet" href="./styles/main.css">
 
-</head>
+</head> 
 
 <body>
   <form action="/add" method="POST" style="position: fixed; top: 0;">
     <select name="country">
-      <option value="" disabled selected >Select country</option>
+      <option value="" disabled selected >Select Country</option>
       <% options.forEach(element=>{ %>
          <option><%= element %></option>
       <% }) %>
@@ -378,6 +378,7 @@
   </section>
   <h2 class="total-count">Total Countries: <%=total || 0%>
   </h2>
+  <h2 class="web-title">Travel Tracker</h2>
 
   
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -385,7 +386,7 @@
     const country_name = '<'
     const country_codes = '<%= countries %>'.split(','); 
     country_codes.forEach(code => {
-      $('#'+code).css('fill', 'Teal');
+      $('#'+code).css('fill', '#53b56d');
     });
 
   </script>

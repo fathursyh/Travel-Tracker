@@ -102,6 +102,16 @@ button {
   left: 0;
   bottom: 0;
 }
+.web-title {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: bolder;
+  font-size: 2rem;
+  position: relative;
+  padding: 15px;
+  text-align: center;
+  bottom: 5%;
+}
 
 select {
   padding: 15px;
