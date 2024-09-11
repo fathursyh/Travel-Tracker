@@ -1,4 +1,4 @@
-## BACKEND JOURNEY
+## BACKEND JOURNEY (Travel Tracker)
 ---
 This is one of the project which the teacher use to practice my node js and postgres skill.
 The key points of this repo are :
