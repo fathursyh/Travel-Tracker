@@ -1,5 +1,7 @@
-## BACKEND JOURNEY (Travel Tracker)
----
+<h1 align="center">
+   Travel Tracker
+</h1>
+
 This is one of the project which the teacher use to practice my node js and postgres skill.
 The key points of this repo are :
 1. I was using postgres as an object of a class with the name of **PostgresDB**
